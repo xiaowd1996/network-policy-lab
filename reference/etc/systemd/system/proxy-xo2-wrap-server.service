@@ -1,0 +1,24 @@
+[Unit]
+Description=Isolated packaged HK relay to independent second XO
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/sing-box run -c /root/private-xo2-wrap-20261012/server.json
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/private-xo2-wrap-20261012
+
+[Install]
+WantedBy=multi-user.target

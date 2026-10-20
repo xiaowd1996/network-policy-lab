@@ -1,0 +1,67 @@
+user www-data;
+worker_processes 1;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log warn;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    sendfile on;
+    tcp_nopush on;
+    keepalive_timeout 30;
+    server_tokens off;
+    include /etc/nginx/proxy-diagnostic-http.conf;
+
+    server {
+        listen 127.0.0.1:8080 default_server;
+        # qian-https-home-20261007
+        location = / {
+            root /var/www/qian-preview;
+            try_files /index.html =404;
+            add_header X-Content-Type-Options nosniff always;
+            add_header Referrer-Policy no-referrer always;
+            add_header Content-Security-Policy "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+        }
+
+        server_name _;
+        root /srv/private-subscriptions;
+        include /etc/nginx/proxy-diagnostic-server.conf;
+        access_log off;
+        log_not_found off;
+
+        add_header Cache-Control "no-store" always;
+        add_header X-Robots-Tag "noindex, nofollow, noarchive" always;
+        add_header X-Content-Type-Options "nosniff" always;
+
+        location ~ "^/s/[A-Za-z0-9_-]{43}/(mihomo\.yaml|mihomo-xo\.yaml|trojan\.txt)$" {
+            try_files $uri =404;
+        }
+
+        location / {
+            return 404;
+        }
+    }
+
+    # qian-static-preview-20261007
+    server {
+        listen 80;
+        server_name 198.51.100.20;
+        root /var/www/qian-preview;
+        index index.html;
+        autoindex off;
+        server_tokens off;
+        access_log /var/log/nginx/qian-preview-access.log;
+        error_log /var/log/nginx/qian-preview-error.log warn;
+        add_header X-Content-Type-Options nosniff always;
+        add_header Referrer-Policy no-referrer always;
+        add_header Content-Security-Policy "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+        location = / { try_files /index.html =404; }
+        location = /index.html { try_files /index.html =404; }
+        location = /favicon.ico { return 204; }
+        location / { return 404; }
+    }
+}

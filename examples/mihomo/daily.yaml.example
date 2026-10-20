@@ -1,0 +1,1174 @@
+find-process-mode: strict
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: warning
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - localhost.ptlogin2.qq.com
+  default-nameserver:
+  - 223.5.5.5
+  proxy-server-nameserver:
+  - https://dns.alidns.com/dns-query
+  nameserver:
+  - https://1.1.1.1/dns-query#出口模式
+  - https://8.8.8.8/dns-query#出口模式
+  nameserver-policy:
+    +.weixin.qq.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.weixin.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.wechat.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.wechatapp.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.qq.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.qpic.cn:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.gtimg.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.tencent.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.tenpay.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.apps.microsoft.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.storeedge.microsoft.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.mp.microsoft.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.windowsupdate.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.update.microsoft.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.microsoftonline.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.login.live.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msauth.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    geosite:microsoft:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.openai.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.chatgpt.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.oaistatic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.oaiusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.oaistatsig.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.openaimerge.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.ct.sendgrid.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.intercom.io:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.intercomcdn.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    cdn.workos.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    challenges.cloudflare.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    forwarder.workos.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    humb.apple.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    images.workoscdn.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    js.stripe.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    o207216.ingest.sentry.io:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    o33249.ingest.sentry.io:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    rum.browser-intake-datadoghq.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    setup.workos.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    workos.imgix.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.ippure.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.ipapi.co:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.ipinfo.io:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.icanhazip.com:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    myip.ipip.net:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    api.123169.xyz:
+    - https://1.1.1.1/dns-query#出口模式
+    - https://8.8.8.8/dns-query#出口模式
+    +.snssdk.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.ctobsnssdk.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.ttwebview.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.gdtimg.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.kuaishouzt.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.alipay.com:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    rule-set:cn_domain:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    geosite:cn:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+    +.anthropic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.claude.ai:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.claude.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.claude.app:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.claudeusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.claudemcpcontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.stripe.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.stripe.network:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.stripecdn.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    accounts.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    oauth2.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    openidconnect.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    storage.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    registry.npmjs.org:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    github.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    api.github.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    raw.githubusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    objects.githubusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    release-assets.githubusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    codeload.github.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    formulae.brew.sh:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    http-intake.logs.us5.datadoghq.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    browser-intake-us5-datadoghq.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    fonts.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    fonts.gstatic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    ssl.gstatic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    www.gstatic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    cdnjs.cloudflare.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    cdn.jsdelivr.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    cdn.tailwindcss.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    code.jquery.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    unpkg.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    register.appattest.apple.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.live.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.office.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.office365.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.cloud.microsoft:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.smtp.office365.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlookmobile.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.acompli.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.hotmail.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.account.live.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.hip.live.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.microsoftonline-p.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msauthimages.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msftauth.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msftauthimages.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.auth.microsoft.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msftidentity.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.msidentity.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.res.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.attachments.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.outlook.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    login.microsoft.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    login.windows.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    login.windows-ppe.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    graph.microsoft.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    graph.windows.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    autologon.microsoftazuread-sso.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    outlook-1.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    outlook-2.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    outlook-3.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    outlook-4.cdn.office.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    substrate.office.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.gemini.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.gemini.google:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.bard.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.aistudio.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.makersuite.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.ai.google.dev:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.generativelanguage.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.aiplatform.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.cloudcode-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.cloudaicompanion.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.accounts.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.myaccount.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.googleusercontent.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.gstatic.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.payments.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.pay.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.one.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.ai.studio:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.generativeai.google:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    accounts.youtube.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    apis.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    ogs.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    content.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    drive.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    docs.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    drive.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    securetoken.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    identitytoolkit.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    serviceusage.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    cloudresourcemanager.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    people.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    firebaselogging-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    feedback-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    apihub.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    studio-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    alkalimakersuite-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    alkalicore-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    webchannel-alkalimakersuite-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    geminiweb-pa.clients.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    geminiweb-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    robinfrontend-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    proactivebackend-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    geller-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    aisandbox-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    aicode.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    aida.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    daily-cloudcode-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    signaler-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    waa-pa.clients6.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    firebaseinstallations.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    speechs3proto2-pa.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    aiplatform.us.rep.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    aiplatform.eu.rep.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    play.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    www.google.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    recaptcha.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    www.recaptcha.net:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+    +.googleapis.com:
+    - https://1.1.1.1/dns-query#XO · 强制美国
+    - https://8.8.8.8/dns-query#XO · 强制美国
+  direct-nameserver:
+  - https://dns.alidns.com/dns-query#DIRECT
+  - https://doh.pub/dns-query#DIRECT
+  direct-nameserver-follow-policy: false
+rule-providers:
+  private_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./ruleset/private-domain.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+    interval: 86400
+    proxy: AUTO · 智能分流
+  cn_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./ruleset/cn-domain.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
+    interval: 86400
+    proxy: AUTO · 智能分流
+  private_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    path: ./ruleset/private-ip.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+    interval: 86400
+    proxy: AUTO · 智能分流
+  cn_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    path: ./ruleset/cn-ip.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    interval: 86400
+    proxy: AUTO · 智能分流
+proxies:
+- name: AUTO · 智能分流
+  type: vless
+  server: 198.51.100.10
+  port: 18448
+  uuid: EXAMPLE_SECRET
+  udp: false
+  tls: true
+  flow: xtls-rprx-vision
+  network: tcp
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  reality-opts:
+    public-key: EXAMPLE_SECRET
+    short-id: EXAMPLE_SECRET
+- name: HK · 强制香港
+  type: vless
+  server: 198.51.100.10
+  port: 18448
+  uuid: EXAMPLE_SECRET
+  udp: false
+  tls: true
+  flow: xtls-rprx-vision
+  network: tcp
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  reality-opts:
+    public-key: EXAMPLE_SECRET
+    short-id: EXAMPLE_SECRET
+- name: XO · 强制美国
+  type: vless
+  server: 198.51.100.10
+  port: 18448
+  uuid: EXAMPLE_SECRET
+  udp: false
+  tls: true
+  flow: xtls-rprx-vision
+  network: tcp
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  reality-opts:
+    public-key: EXAMPLE_SECRET
+    short-id: EXAMPLE_SECRET
+proxy-groups:
+- name: 出口模式
+  type: select
+  proxies:
+  - AUTO · 智能分流
+  - HK · 强制香港
+  - XO · 强制美国
+rules:
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- RULE-SET,private_domain,DIRECT
+- RULE-SET,private_ip,DIRECT,no-resolve
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,anthropic.com)),REJECT
+- DOMAIN-SUFFIX,anthropic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,claude.ai)),REJECT
+- DOMAIN-SUFFIX,claude.ai,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,claude.com)),REJECT
+- DOMAIN-SUFFIX,claude.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,claude.app)),REJECT
+- DOMAIN-SUFFIX,claude.app,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,claudeusercontent.com)),REJECT
+- DOMAIN-SUFFIX,claudeusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,claudemcpcontent.com)),REJECT
+- DOMAIN-SUFFIX,claudemcpcontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,stripe.com)),REJECT
+- DOMAIN-SUFFIX,stripe.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,stripe.network)),REJECT
+- DOMAIN-SUFFIX,stripe.network,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,stripecdn.com)),REJECT
+- DOMAIN-SUFFIX,stripecdn.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,openai.com)),REJECT
+- DOMAIN-SUFFIX,openai.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,chatgpt.com)),REJECT
+- DOMAIN-SUFFIX,chatgpt.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,oaistatic.com)),REJECT
+- DOMAIN-SUFFIX,oaistatic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,oaiusercontent.com)),REJECT
+- DOMAIN-SUFFIX,oaiusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,oaistatsig.com)),REJECT
+- DOMAIN-SUFFIX,oaistatsig.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,openaimerge.com)),REJECT
+- DOMAIN-SUFFIX,openaimerge.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,ct.sendgrid.net)),REJECT
+- DOMAIN-SUFFIX,ct.sendgrid.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,intercom.io)),REJECT
+- DOMAIN-SUFFIX,intercom.io,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,intercomcdn.com)),REJECT
+- DOMAIN-SUFFIX,intercomcdn.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,challenges.cloudflare.com)),REJECT
+- DOMAIN,challenges.cloudflare.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,accounts.google.com)),REJECT
+- DOMAIN,accounts.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,oauth2.googleapis.com)),REJECT
+- DOMAIN,oauth2.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,openidconnect.googleapis.com)),REJECT
+- DOMAIN,openidconnect.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,storage.googleapis.com)),REJECT
+- DOMAIN,storage.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,registry.npmjs.org)),REJECT
+- DOMAIN,registry.npmjs.org,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,github.com)),REJECT
+- DOMAIN,github.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,api.github.com)),REJECT
+- DOMAIN,api.github.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,raw.githubusercontent.com)),REJECT
+- DOMAIN,raw.githubusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,objects.githubusercontent.com)),REJECT
+- DOMAIN,objects.githubusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,release-assets.githubusercontent.com)),REJECT
+- DOMAIN,release-assets.githubusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,codeload.github.com)),REJECT
+- DOMAIN,codeload.github.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,formulae.brew.sh)),REJECT
+- DOMAIN,formulae.brew.sh,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,http-intake.logs.us5.datadoghq.com)),REJECT
+- DOMAIN,http-intake.logs.us5.datadoghq.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,browser-intake-us5-datadoghq.com)),REJECT
+- DOMAIN,browser-intake-us5-datadoghq.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,fonts.googleapis.com)),REJECT
+- DOMAIN,fonts.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,fonts.gstatic.com)),REJECT
+- DOMAIN,fonts.gstatic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,ssl.gstatic.com)),REJECT
+- DOMAIN,ssl.gstatic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,www.gstatic.com)),REJECT
+- DOMAIN,www.gstatic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,cdnjs.cloudflare.com)),REJECT
+- DOMAIN,cdnjs.cloudflare.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,cdn.jsdelivr.net)),REJECT
+- DOMAIN,cdn.jsdelivr.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,cdn.tailwindcss.com)),REJECT
+- DOMAIN,cdn.tailwindcss.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,code.jquery.com)),REJECT
+- DOMAIN,code.jquery.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,unpkg.com)),REJECT
+- DOMAIN,unpkg.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,cdn.workos.com)),REJECT
+- DOMAIN,cdn.workos.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,forwarder.workos.com)),REJECT
+- DOMAIN,forwarder.workos.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,humb.apple.com)),REJECT
+- DOMAIN,humb.apple.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,images.workoscdn.com)),REJECT
+- DOMAIN,images.workoscdn.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,o207216.ingest.sentry.io)),REJECT
+- DOMAIN,o207216.ingest.sentry.io,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,o33249.ingest.sentry.io)),REJECT
+- DOMAIN,o33249.ingest.sentry.io,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,rum.browser-intake-datadoghq.com)),REJECT
+- DOMAIN,rum.browser-intake-datadoghq.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,setup.workos.com)),REJECT
+- DOMAIN,setup.workos.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,workos.imgix.net)),REJECT
+- DOMAIN,workos.imgix.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,register.appattest.apple.com)),REJECT
+- DOMAIN,register.appattest.apple.com,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Claude.exe)),REJECT
+- PROCESS-NAME,Claude.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,claude.exe)),REJECT
+- PROCESS-NAME,claude.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Claude)),REJECT
+- PROCESS-NAME,Claude,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,claude)),REJECT
+- PROCESS-NAME,claude,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,com.anthropic.claude)),REJECT
+- PROCESS-NAME,com.anthropic.claude,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,ChatGPT.exe)),REJECT
+- PROCESS-NAME,ChatGPT.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,ChatGPT)),REJECT
+- PROCESS-NAME,ChatGPT,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,codex.exe)),REJECT
+- PROCESS-NAME,codex.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,codex)),REJECT
+- PROCESS-NAME,codex,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Codex.exe)),REJECT
+- PROCESS-NAME,Codex.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Codex)),REJECT
+- PROCESS-NAME,Codex,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME-WILDCARD,Claude Helper*)),REJECT
+- PROCESS-NAME-WILDCARD,Claude Helper*,XO · 强制美国
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(IP-CIDR,198.51.100.99/32)),REJECT
+- IP-CIDR,198.51.100.99/32,XO · 强制美国,no-resolve
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,gemini.google.com)),REJECT
+- DOMAIN-SUFFIX,gemini.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,gemini.google)),REJECT
+- DOMAIN-SUFFIX,gemini.google,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,bard.google.com)),REJECT
+- DOMAIN-SUFFIX,bard.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,aistudio.google.com)),REJECT
+- DOMAIN-SUFFIX,aistudio.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,makersuite.google.com)),REJECT
+- DOMAIN-SUFFIX,makersuite.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,ai.google.dev)),REJECT
+- DOMAIN-SUFFIX,ai.google.dev,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,generativelanguage.googleapis.com)),REJECT
+- DOMAIN-SUFFIX,generativelanguage.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,aiplatform.googleapis.com)),REJECT
+- DOMAIN-SUFFIX,aiplatform.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,cloudcode-pa.googleapis.com)),REJECT
+- DOMAIN-SUFFIX,cloudcode-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,cloudaicompanion.googleapis.com)),REJECT
+- DOMAIN-SUFFIX,cloudaicompanion.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,accounts.google.com)),REJECT
+- DOMAIN-SUFFIX,accounts.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,myaccount.google.com)),REJECT
+- DOMAIN-SUFFIX,myaccount.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,googleusercontent.com)),REJECT
+- DOMAIN-SUFFIX,googleusercontent.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,gstatic.com)),REJECT
+- DOMAIN-SUFFIX,gstatic.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,payments.google.com)),REJECT
+- DOMAIN-SUFFIX,payments.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,pay.google.com)),REJECT
+- DOMAIN-SUFFIX,pay.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,one.google.com)),REJECT
+- DOMAIN-SUFFIX,one.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,ai.studio)),REJECT
+- DOMAIN-SUFFIX,ai.studio,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,generativeai.google)),REJECT
+- DOMAIN-SUFFIX,generativeai.google,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,oauth2.googleapis.com)),REJECT
+- DOMAIN,oauth2.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,openidconnect.googleapis.com)),REJECT
+- DOMAIN,openidconnect.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,accounts.youtube.com)),REJECT
+- DOMAIN,accounts.youtube.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,apis.google.com)),REJECT
+- DOMAIN,apis.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,ogs.google.com)),REJECT
+- DOMAIN,ogs.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,clients6.google.com)),REJECT
+- DOMAIN,clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,content.googleapis.com)),REJECT
+- DOMAIN,content.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,drive.google.com)),REJECT
+- DOMAIN,drive.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,docs.google.com)),REJECT
+- DOMAIN,docs.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,drive.googleapis.com)),REJECT
+- DOMAIN,drive.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,storage.googleapis.com)),REJECT
+- DOMAIN,storage.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,securetoken.googleapis.com)),REJECT
+- DOMAIN,securetoken.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,identitytoolkit.googleapis.com)),REJECT
+- DOMAIN,identitytoolkit.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,serviceusage.googleapis.com)),REJECT
+- DOMAIN,serviceusage.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,cloudresourcemanager.googleapis.com)),REJECT
+- DOMAIN,cloudresourcemanager.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,people.googleapis.com)),REJECT
+- DOMAIN,people.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,firebaselogging-pa.googleapis.com)),REJECT
+- DOMAIN,firebaselogging-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,feedback-pa.googleapis.com)),REJECT
+- DOMAIN,feedback-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,apihub.googleapis.com)),REJECT
+- DOMAIN,apihub.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,studio-pa.googleapis.com)),REJECT
+- DOMAIN,studio-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,alkalimakersuite-pa.clients6.google.com)),REJECT
+- DOMAIN,alkalimakersuite-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,alkalicore-pa.clients6.google.com)),REJECT
+- DOMAIN,alkalicore-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com)),REJECT
+- DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,geminiweb-pa.clients.google.com)),REJECT
+- DOMAIN,geminiweb-pa.clients.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,geminiweb-pa.clients6.google.com)),REJECT
+- DOMAIN,geminiweb-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,robinfrontend-pa.googleapis.com)),REJECT
+- DOMAIN,robinfrontend-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,proactivebackend-pa.googleapis.com)),REJECT
+- DOMAIN,proactivebackend-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,geller-pa.googleapis.com)),REJECT
+- DOMAIN,geller-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,aisandbox-pa.googleapis.com)),REJECT
+- DOMAIN,aisandbox-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,aicode.googleapis.com)),REJECT
+- DOMAIN,aicode.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,aida.googleapis.com)),REJECT
+- DOMAIN,aida.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,daily-cloudcode-pa.googleapis.com)),REJECT
+- DOMAIN,daily-cloudcode-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,signaler-pa.clients6.google.com)),REJECT
+- DOMAIN,signaler-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,waa-pa.clients6.google.com)),REJECT
+- DOMAIN,waa-pa.clients6.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,firebaseinstallations.googleapis.com)),REJECT
+- DOMAIN,firebaseinstallations.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,speechs3proto2-pa.googleapis.com)),REJECT
+- DOMAIN,speechs3proto2-pa.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,aiplatform.us.rep.googleapis.com)),REJECT
+- DOMAIN,aiplatform.us.rep.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,aiplatform.eu.rep.googleapis.com)),REJECT
+- DOMAIN,aiplatform.eu.rep.googleapis.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,play.google.com)),REJECT
+- DOMAIN,play.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,www.google.com)),REJECT
+- DOMAIN,www.google.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,recaptcha.net)),REJECT
+- DOMAIN,recaptcha.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,www.recaptcha.net)),REJECT
+- DOMAIN,www.recaptcha.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-REGEX,^[a-z0-9-]+-aiplatform\.googleapis\.com$)),REJECT
+- DOMAIN-REGEX,^[a-z0-9-]+-aiplatform\.googleapis\.com$,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,gemini.exe)),REJECT
+- PROCESS-NAME,gemini.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Gemini.exe)),REJECT
+- PROCESS-NAME,Gemini.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,gemini)),REJECT
+- PROCESS-NAME,gemini,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Gemini)),REJECT
+- PROCESS-NAME,Gemini,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,com.google.android.apps.bard)),REJECT
+- PROCESS-NAME,com.google.android.apps.bard,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.com)),REJECT
+- DOMAIN-SUFFIX,outlook.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.live.com)),REJECT
+- DOMAIN-SUFFIX,outlook.live.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.office.com)),REJECT
+- DOMAIN-SUFFIX,outlook.office.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.office365.com)),REJECT
+- DOMAIN-SUFFIX,outlook.office365.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.cloud.microsoft)),REJECT
+- DOMAIN-SUFFIX,outlook.cloud.microsoft,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,smtp.office365.com)),REJECT
+- DOMAIN-SUFFIX,smtp.office365.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlookmobile.com)),REJECT
+- DOMAIN-SUFFIX,outlookmobile.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,acompli.net)),REJECT
+- DOMAIN-SUFFIX,acompli.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,hotmail.com)),REJECT
+- DOMAIN-SUFFIX,hotmail.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,login.live.com)),REJECT
+- DOMAIN-SUFFIX,login.live.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,account.live.com)),REJECT
+- DOMAIN-SUFFIX,account.live.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,hip.live.com)),REJECT
+- DOMAIN-SUFFIX,hip.live.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,microsoftonline.com)),REJECT
+- DOMAIN-SUFFIX,microsoftonline.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,microsoftonline-p.com)),REJECT
+- DOMAIN-SUFFIX,microsoftonline-p.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msauth.net)),REJECT
+- DOMAIN-SUFFIX,msauth.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msauthimages.net)),REJECT
+- DOMAIN-SUFFIX,msauthimages.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msftauth.net)),REJECT
+- DOMAIN-SUFFIX,msftauth.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msftauthimages.net)),REJECT
+- DOMAIN-SUFFIX,msftauthimages.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,auth.microsoft.com)),REJECT
+- DOMAIN-SUFFIX,auth.microsoft.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msftidentity.com)),REJECT
+- DOMAIN-SUFFIX,msftidentity.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,msidentity.com)),REJECT
+- DOMAIN-SUFFIX,msidentity.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,res.cdn.office.net)),REJECT
+- DOMAIN-SUFFIX,res.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,attachments.office.net)),REJECT
+- DOMAIN-SUFFIX,attachments.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-SUFFIX,outlook.cdn.office.net)),REJECT
+- DOMAIN-SUFFIX,outlook.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,login.microsoft.com)),REJECT
+- DOMAIN,login.microsoft.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,login.windows.net)),REJECT
+- DOMAIN,login.windows.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,login.windows-ppe.net)),REJECT
+- DOMAIN,login.windows-ppe.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,graph.microsoft.com)),REJECT
+- DOMAIN,graph.microsoft.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,graph.windows.net)),REJECT
+- DOMAIN,graph.windows.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,autologon.microsoftazuread-sso.com)),REJECT
+- DOMAIN,autologon.microsoftazuread-sso.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,outlook-1.cdn.office.net)),REJECT
+- DOMAIN,outlook-1.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,outlook-2.cdn.office.net)),REJECT
+- DOMAIN,outlook-2.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,outlook-3.cdn.office.net)),REJECT
+- DOMAIN,outlook-3.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,outlook-4.cdn.office.net)),REJECT
+- DOMAIN,outlook-4.cdn.office.net,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN,substrate.office.com)),REJECT
+- DOMAIN,substrate.office.com,XO · 强制美国
+- AND,((NETWORK,UDP),(DOMAIN-REGEX,^autodiscover\.[^.]+\.onmicrosoft\.com$)),REJECT
+- DOMAIN-REGEX,^autodiscover\.[^.]+\.onmicrosoft\.com$,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,OUTLOOK.EXE)),REJECT
+- PROCESS-NAME,OUTLOOK.EXE,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,OUTLOOK.exe)),REJECT
+- PROCESS-NAME,OUTLOOK.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,outlook.exe)),REJECT
+- PROCESS-NAME,outlook.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,olk.exe)),REJECT
+- PROCESS-NAME,olk.exe,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,Microsoft Outlook)),REJECT
+- PROCESS-NAME,Microsoft Outlook,XO · 强制美国
+- AND,((NETWORK,UDP),(PROCESS-NAME,com.microsoft.office.outlook)),REJECT
+- PROCESS-NAME,com.microsoft.office.outlook,XO · 强制美国
+- PROCESS-NAME,steam.exe,DIRECT
+- PROCESS-NAME,steamservice.exe,DIRECT
+- PROCESS-PATH-REGEX,(?i).*\\steamapps\\common\\.*\.exe,DIRECT
+- AND,((NETWORK,UDP),(DST-PORT,27000-27250)),DIRECT
+- AND,((NETWORK,UDP),(DST-PORT,4379)),DIRECT
+- AND,((NETWORK,UDP),(DST-PORT,4380)),DIRECT
+- AND,((NETWORK,TCP),(DST-PORT,27015-27050)),DIRECT
+- PROCESS-NAME,com.codexchat.magnet_downloader,DIRECT
+- PROCESS-NAME,magnet_downloader.exe,DIRECT
+- PROCESS-NAME,magnet_downloader,DIRECT
+- PROCESS-NAME,com.xunlei.downloadprovider,DIRECT
+- PROCESS-NAME,com.delphicoder.flud,DIRECT
+- PROCESS-NAME,org.proninyaroslav.libretorrent,DIRECT
+- PROCESS-NAME,com.utorrent.client,DIRECT
+- PROCESS-NAME,com.bittorrent.client,DIRECT
+- PROCESS-NAME,org.frostwire.android,DIRECT
+- PROCESS-NAME,com.biglybt.android.client,DIRECT
+- PROCESS-NAME,qBittorrent,DIRECT
+- PROCESS-NAME,qbittorrent.exe,DIRECT
+- PROCESS-NAME,qbittorrent-nox,DIRECT
+- PROCESS-NAME,dev.bartuzen.qbitcontroller,DIRECT
+- PROCESS-NAME,syncthing,DIRECT
+- PROCESS-NAME,syncthing.exe,DIRECT
+- PROCESS-NAME,syncthingtray,DIRECT
+- PROCESS-NAME,syncthingtray.exe,DIRECT
+- PROCESS-NAME,com.nutomic.syncthingandroid,DIRECT
+- PROCESS-NAME,com.github.catfriend1.syncthingandroid,DIRECT
+- PROCESS-NAME,Transmission,DIRECT
+- PROCESS-NAME,transmission-daemon,DIRECT
+- PROCESS-NAME,transmission-daemon.exe,DIRECT
+- PROCESS-NAME,transmission-qt.exe,DIRECT
+- PROCESS-NAME,transmission-qt,DIRECT
+- PROCESS-NAME,Thunder,DIRECT
+- PROCESS-NAME,Thunder.exe,DIRECT
+- PROCESS-NAME,ThunderVIP.exe,DIRECT
+- PROCESS-NAME,DownloadSDKServer.exe,DIRECT
+- PROCESS-NAME,uTorrent,DIRECT
+- PROCESS-NAME,uTorrent.exe,DIRECT
+- PROCESS-NAME,BitTorrent,DIRECT
+- PROCESS-NAME,BitTorrent.exe,DIRECT
+- PROCESS-NAME,BitComet,DIRECT
+- PROCESS-NAME,BitComet.exe,DIRECT
+- PROCESS-NAME,BitComet_x64.exe,DIRECT
+- PROCESS-NAME,aria2,DIRECT
+- PROCESS-NAME,aria2.exe,DIRECT
+- PROCESS-NAME,aria2c,DIRECT
+- PROCESS-NAME,aria2c.exe,DIRECT
+- PROCESS-NAME,WebTorrent,DIRECT
+- PROCESS-NAME,WebTorrent.exe,DIRECT
+- PROCESS-NAME,Folx,DIRECT
+- PROCESS-NAME,deluge,DIRECT
+- PROCESS-NAME,deluged,DIRECT
+- PROCESS-NAME,deluge.exe,DIRECT
+- PROCESS-NAME,deluged.exe,DIRECT
+- GEOSITE,category-public-tracker,DIRECT
+- PROCESS-NAME,com.tencent.mm,DIRECT
+- DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+- DOMAIN-SUFFIX,weixin.com,DIRECT
+- DOMAIN-SUFFIX,wechat.com,DIRECT
+- DOMAIN-SUFFIX,wechatapp.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,qpic.cn,DIRECT
+- DOMAIN-SUFFIX,gtimg.com,DIRECT
+- DOMAIN-SUFFIX,tencent.com,DIRECT
+- DOMAIN-SUFFIX,tenpay.com,DIRECT
+- DOMAIN-SUFFIX,apps.microsoft.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,storeedge.microsoft.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,mp.microsoft.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,windowsupdate.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,update.microsoft.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,microsoftonline.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,login.live.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,msauth.net,AUTO · 智能分流
+- GEOSITE,microsoft,AUTO · 智能分流
+- DOMAIN,journals.sagepub.com,XO · 强制美国
+- DOMAIN-SUFFIX,openai.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,chatgpt.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,oaistatic.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,oaiusercontent.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,oaistatsig.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,openaimerge.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,ct.sendgrid.net,AUTO · 智能分流
+- DOMAIN-SUFFIX,intercom.io,AUTO · 智能分流
+- DOMAIN-SUFFIX,intercomcdn.com,AUTO · 智能分流
+- DOMAIN,cdn.workos.com,AUTO · 智能分流
+- DOMAIN,challenges.cloudflare.com,AUTO · 智能分流
+- DOMAIN,forwarder.workos.com,AUTO · 智能分流
+- DOMAIN,humb.apple.com,AUTO · 智能分流
+- DOMAIN,images.workoscdn.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,stripe.com,XO · 强制美国
+- DOMAIN-SUFFIX,stripe.network,XO · 强制美国
+- DOMAIN-SUFFIX,stripecdn.com,XO · 强制美国
+- DOMAIN,o207216.ingest.sentry.io,AUTO · 智能分流
+- DOMAIN,o33249.ingest.sentry.io,AUTO · 智能分流
+- DOMAIN,rum.browser-intake-datadoghq.com,AUTO · 智能分流
+- DOMAIN,setup.workos.com,AUTO · 智能分流
+- DOMAIN,workos.imgix.net,AUTO · 智能分流
+- DOMAIN-SUFFIX,ippure.com,AUTO · 智能分流
+- DOMAIN-SUFFIX,ipapi.co,AUTO · 智能分流
+- DOMAIN-SUFFIX,ipinfo.io,AUTO · 智能分流
+- DOMAIN-SUFFIX,icanhazip.com,AUTO · 智能分流
+- DOMAIN,myip.ipip.net,AUTO · 智能分流
+- DOMAIN,api.123169.xyz,AUTO · 智能分流
+- PROCESS-NAME,com.eg.android.AlipayGphone,DIRECT
+- PROCESS-NAME,com.ss.android.ugc.aweme,DIRECT
+- PROCESS-NAME,com.ss.android.article.news,DIRECT
+- PROCESS-NAME,com.smile.gifmaker,DIRECT
+- PROCESS-NAME,com.taobao.taobao,DIRECT
+- PROCESS-NAME,com.jingdong.app.mall,DIRECT
+- PROCESS-NAME,com.sankuai.meituan,DIRECT
+- PROCESS-NAME,tv.danmaku.bili,DIRECT
+- PROCESS-NAME,com.alibaba.android.rimet,DIRECT
+- PROCESS-NAME,com.tencent.wework,DIRECT
+- PROCESS-NAME,com.netease.cloudmusic,DIRECT
+- PROCESS-NAME,com.baidu.netdisk,DIRECT
+- PROCESS-NAME,com.autonavi.minimap,DIRECT
+- DOMAIN-SUFFIX,snssdk.com,DIRECT
+- DOMAIN-SUFFIX,ctobsnssdk.com,DIRECT
+- DOMAIN-SUFFIX,ttwebview.com,DIRECT
+- DOMAIN-SUFFIX,gdtimg.com,DIRECT
+- DOMAIN-SUFFIX,kuaishouzt.com,DIRECT
+- DOMAIN-SUFFIX,alipay.com,DIRECT
+- PROCESS-NAME,QQ.exe,DIRECT
+- PROCESS-NAME,QQEX.exe,DIRECT
+- PROCESS-NAME,com.tencent.mobileqq,DIRECT
+- PROCESS-NAME,com.tencent.tim,DIRECT
+- RULE-SET,cn_domain,DIRECT
+- RULE-SET,cn_ip,DIRECT
+- GEOSITE,CN,DIRECT
+- GEOIP,CN,DIRECT
+- NETWORK,UDP,REJECT
+- MATCH,出口模式

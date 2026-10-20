@@ -1,0 +1,25 @@
+[Unit]
+Description=Dedicated 33 REALITY receiver; original 443 unchanged
+After=network.target proxy-relay-wrap-guard.service proxy-relay-wrap-bridge.service
+Requires=proxy-relay-wrap-guard.service proxy-relay-wrap-bridge.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/sing-box run -c /root/private-relay-wrap/server.json
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/private-relay-wrap
+Environment=GOMAXPROCS=2
+
+[Install]
+WantedBy=multi-user.target

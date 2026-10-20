@@ -1,0 +1,333 @@
+{
+  "log": {
+    "level": "error",
+    "output": "/root/private-formal-wrap/server.log"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "formal-wrapped",
+      "listen": "0.0.0.0",
+      "listen_port": 18448,
+      "users": [
+        {
+          "name": "EXAMPLE_USER_1",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_2",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_3",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_4",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_5",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_6",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_7",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_8",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_9",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_10",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_11",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_12",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.cloudflare.com",
+            "server_port": 443
+          },
+          "private_key": "EXAMPLE_SECRET",
+          "short_id": [
+            "EXAMPLE_SECRET"
+          ],
+          "max_time_difference": "1m"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_1",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_2",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_3",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_4",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_5",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_6",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_7",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_8",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_9",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_10",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_11",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_12",
+      "server": "127.0.0.1",
+      "server_port": 18449,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "network": "udp",
+        "action": "reject"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_1"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_1"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_2"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_2"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_3"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_3"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_4"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_4"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_5"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_5"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_6"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_6"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_7"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_7"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_8"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_8"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_9"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_9"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_10"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_10"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_11"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_11"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_12"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_12"
+      },
+      {
+        "action": "reject"
+      }
+    ]
+  }
+}

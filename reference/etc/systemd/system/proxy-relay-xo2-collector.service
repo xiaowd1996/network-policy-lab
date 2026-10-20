@@ -1,0 +1,26 @@
+[Unit]
+Description=33 new-XO auth and domain byte metadata audit
+After=proxy-relay-xo2-server.service
+Requires=proxy-relay-xo2-server.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-relay-xo2-20261014/collector.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/proxy-relay-xo2
+Environment=GOMAXPROCS=2
+MemoryMax=96M
+CPUQuota=10%
+Nice=10
+[Install]
+WantedBy=multi-user.target

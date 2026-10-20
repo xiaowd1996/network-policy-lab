@@ -1,0 +1,30 @@
+[Unit]
+Description=Metadata-only direct-HK REALITY TCP observer
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-direct-wrap/monitor.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/proxy-direct-wrap
+MemoryMax=96M
+CPUQuota=10%
+Nice=10
+Environment=RELAY_BRIDGE_ROOT=/var/lib/proxy-direct-wrap
+Environment=RELAY_MONITOR_PORT=18446
+Environment=RELAY_MONITOR_PEER=
+Environment=RELAY_MONITOR_SCOPE=direct-packaged
+[Install]
+WantedBy=multi-user.target

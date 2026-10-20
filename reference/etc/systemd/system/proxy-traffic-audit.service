@@ -1,0 +1,29 @@
+[Unit]
+Description=Private proxy per-target traffic collector
+After=network-online.target sing-box.service
+Wants=network-online.target
+Requires=sing-box.service
+
+[Service]
+Type=simple
+User=proxy-audit
+Group=proxy-audit
+UMask=0077
+Environment=PYTHONUNBUFFERED=1
+Environment=TRAFFIC_POLL_SECONDS=1
+Environment=TRAFFIC_RETENTION_DAYS=30
+ExecStart=/usr/local/lib/proxy-traffic-audit/proxy-traffic-audit.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadOnlyPaths=/etc/proxy-traffic-audit/token
+ReadWritePaths=/var/lib/proxy-traffic-audit
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryMax=64M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

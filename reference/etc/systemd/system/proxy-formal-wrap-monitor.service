@@ -1,0 +1,29 @@
+[Unit]
+Description=Metadata-only formal REALITY TCP observer
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-formal-wrap/monitor.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/proxy-formal-wrap
+MemoryMax=96M
+CPUQuota=10%
+Nice=10
+Environment=RELAY_BRIDGE_ROOT=/var/lib/proxy-formal-wrap
+Environment=RELAY_MONITOR_PORT=18448
+Environment=RELAY_MONITOR_PEER=
+[Install]
+WantedBy=multi-user.target

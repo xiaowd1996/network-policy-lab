@@ -1,0 +1,243 @@
+{
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "socks",
+      "tag": "xo-shared",
+      "server": "192.0.2.11",
+      "server_port": 7337,
+      "version": "5",
+      "username": "EXAMPLE_SECRET",
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp"
+    },
+    {
+      "type": "direct",
+      "tag": "EXAMPLE_USER_14"
+    },
+    {
+      "type": "socks",
+      "tag": "EXAMPLE_USER_15",
+      "server": "192.0.2.11",
+      "server_port": 7337,
+      "version": "5",
+      "username": "EXAMPLE_SECRET",
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "network": "udp",
+        "action": "reject",
+        "method": "drop"
+      },
+      {
+        "action": "sniff",
+        "sniffer": [
+          "http",
+          "tls"
+        ],
+        "timeout": "500ms"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "auth_user": [
+              "EXAMPLE_USER_13",
+              "EXAMPLE_USER_14",
+              "EXAMPLE_USER_15"
+            ]
+          },
+          {
+            "rule_set": [
+              "ai-always-xo"
+            ]
+          }
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_15"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "auth_user": [
+              "EXAMPLE_USER_13",
+              "EXAMPLE_USER_14",
+              "EXAMPLE_USER_15"
+            ]
+          },
+          {
+            "auth_user": [
+              "EXAMPLE_USER_14"
+            ]
+          }
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_14"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "auth_user": [
+              "EXAMPLE_USER_13",
+              "EXAMPLE_USER_14",
+              "EXAMPLE_USER_15"
+            ]
+          },
+          {
+            "auth_user": [
+              "EXAMPLE_USER_15"
+            ]
+          }
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_15"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "auth_user": [
+              "EXAMPLE_USER_13",
+              "EXAMPLE_USER_14",
+              "EXAMPLE_USER_15"
+            ]
+          },
+          {
+            "auth_user": [
+              "EXAMPLE_USER_13"
+            ],
+            "rule_set": [
+              "openai-official"
+            ]
+          }
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_15"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_13",
+          "EXAMPLE_USER_14",
+          "EXAMPLE_USER_15"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_14"
+      },
+      {
+        "rule_set": [
+          "ai-always-xo"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_2",
+          "EXAMPLE_USER_5",
+          "EXAMPLE_USER_8",
+          "EXAMPLE_USER_11"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_3",
+          "EXAMPLE_USER_6",
+          "EXAMPLE_USER_9",
+          "EXAMPLE_USER_12"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_1",
+          "EXAMPLE_USER_4",
+          "EXAMPLE_USER_7",
+          "EXAMPLE_USER_10"
+        ],
+        "rule_set": [
+          "openai-official"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "local",
+        "tag": "openai-official",
+        "format": "source",
+        "path": "/etc/sing-box/rules/openai-official.json"
+      },
+      {
+        "type": "local",
+        "tag": "ai-always-xo",
+        "format": "source",
+        "path": "/etc/sing-box/rules/ai-always-xo.json"
+      }
+    ],
+    "final": "direct",
+    "auto_detect_interface": true
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "xo2-wrapped",
+      "listen": "0.0.0.0",
+      "listen_port": 18450,
+      "users": [
+        {
+          "name": "EXAMPLE_USER_1",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_2",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_3",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.cloudflare.com",
+            "server_port": 443
+          },
+          "private_key": "EXAMPLE_SECRET",
+          "short_id": [
+            "EXAMPLE_SECRET"
+          ],
+          "max_time_difference": "1m"
+        }
+      }
+    }
+  ],
+  "log": {
+    "level": "info",
+    "timestamp": true,
+    "output": "/root/private-xo2-wrap-20261012/server.log"
+  }
+}

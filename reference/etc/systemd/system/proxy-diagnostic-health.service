@@ -1,0 +1,18 @@
+[Unit]
+Description=Private proxy server transport health monitor
+After=network-online.target proxy-diagnostic.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=root
+UMask=0077
+ExecStart=/usr/bin/python3 /usr/local/lib/proxy-diagnostic/health.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+MemoryMax=128M
+TasksMax=32
+[Install]
+WantedBy=multi-user.target

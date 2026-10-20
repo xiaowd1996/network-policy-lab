@@ -1,0 +1,129 @@
+{
+  "$schema": "https://sing-box.sagernet.org/schema.json",
+  "log": {
+    "level": "info",
+    "timestamp": true,
+    "output": "/var/lib/proxy-diagnostic/proxy.log"
+  },
+  "inbounds": [
+    {
+      "type": "trojan",
+      "tag": "trojan-in",
+      "listen": "127.0.0.1",
+      "listen_port": 19150,
+      "users": [
+        {
+          "name": "EXAMPLE_USER_4",
+          "password": "EXAMPLE_SECRET"
+        },
+        {
+          "name": "EXAMPLE_USER_5",
+          "password": "EXAMPLE_SECRET"
+        },
+        {
+          "name": "EXAMPLE_USER_6",
+          "password": "EXAMPLE_SECRET"
+        }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "socks",
+      "tag": "xo-shared",
+      "server": "192.0.2.10",
+      "server_port": 43142,
+      "version": "5",
+      "username": "EXAMPLE_SECRET",
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "network": "udp",
+        "action": "reject",
+        "method": "drop"
+      },
+      {
+        "action": "sniff",
+        "sniffer": [
+          "http",
+          "tls"
+        ],
+        "timeout": "500ms"
+      },
+      {
+        "rule_set": [
+          "ai-always-xo"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_2",
+          "EXAMPLE_USER_5",
+          "EXAMPLE_USER_8",
+          "EXAMPLE_USER_11"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_3",
+          "EXAMPLE_USER_6",
+          "EXAMPLE_USER_9",
+          "EXAMPLE_USER_12"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_1",
+          "EXAMPLE_USER_4",
+          "EXAMPLE_USER_7",
+          "EXAMPLE_USER_10"
+        ],
+        "rule_set": [
+          "openai-official"
+        ],
+        "action": "route",
+        "outbound": "xo-shared"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "local",
+        "tag": "openai-official",
+        "format": "source",
+        "path": "/etc/sing-box/rules/openai-official.json"
+      },
+      {
+        "type": "local",
+        "tag": "ai-always-xo",
+        "format": "source",
+        "path": "/etc/sing-box/rules/ai-always-xo.json"
+      }
+    ],
+    "final": "direct",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:19090",
+      "secret": "EXAMPLE_SECRET"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "log": {
+    "level": "error",
+    "output": "/root/private-relay-wrap/server.log"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "wrapped",
+      "listen": "0.0.0.0",
+      "listen_port": 18444,
+      "users": [
+        {
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.cloudflare.com",
+            "server_port": 443
+          },
+          "private_key": "EXAMPLE_SECRET",
+          "short_id": [
+            "EXAMPLE_SECRET"
+          ],
+          "max_time_difference": "1m"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "fixed"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": [
+          "wrapped"
+        ],
+        "action": "route",
+        "outbound": "fixed",
+        "override_address": "127.0.0.1",
+        "override_port": 18445
+      }
+    ]
+  }
+}

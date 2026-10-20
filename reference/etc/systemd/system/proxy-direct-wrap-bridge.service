@@ -1,0 +1,25 @@
+[Unit]
+Description=Direct-HK fixed audited main-443 bridge
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-direct-wrap/bridge.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/proxy-direct-wrap
+Environment=RELAY_BRIDGE_ROOT=/var/lib/proxy-direct-wrap
+Environment=RELAY_BRIDGE_PORT=18447
+[Install]
+WantedBy=multi-user.target

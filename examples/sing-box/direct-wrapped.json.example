@@ -1,0 +1,117 @@
+{
+  "log": {
+    "level": "error",
+    "output": "/root/private-direct-wrap/server.log"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "direct-wrapped",
+      "listen": "0.0.0.0",
+      "listen_port": 18446,
+      "users": [
+        {
+          "name": "EXAMPLE_USER_16",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_17",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "EXAMPLE_USER_18",
+          "uuid": "EXAMPLE_SECRET",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.cloudflare.com",
+            "server_port": 443
+          },
+          "private_key": "EXAMPLE_SECRET",
+          "short_id": [
+            "EXAMPLE_SECRET"
+          ],
+          "max_time_difference": "1m"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_16",
+      "server": "127.0.0.1",
+      "server_port": 18447,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_17",
+      "server": "127.0.0.1",
+      "server_port": 18447,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EXAMPLE_USER_18",
+      "server": "127.0.0.1",
+      "server_port": 18447,
+      "password": "EXAMPLE_SECRET",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "198.51.100.20"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "network": "udp",
+        "action": "reject"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_16"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_16"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_17"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_17"
+      },
+      {
+        "auth_user": [
+          "EXAMPLE_USER_18"
+        ],
+        "action": "route",
+        "outbound": "EXAMPLE_USER_18"
+      },
+      {
+        "action": "reject"
+      }
+    ]
+  }
+}

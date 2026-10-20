@@ -1,0 +1,39 @@
+{
+  "version": 5,
+  "rules": [
+    {
+      "domain_suffix": [
+        "openai.com",
+        "chatgpt.com",
+        "oaistatic.com",
+        "oaiusercontent.com",
+        "oaistatsig.com",
+        "openaimerge.com",
+        "ct.sendgrid.net",
+        "intercom.io",
+        "intercomcdn.com",
+        "ippure.com",
+        "ipapi.co",
+        "ipinfo.io",
+        "icanhazip.com"
+      ]
+    },
+    {
+      "domain": [
+        "cdn.workos.com",
+        "challenges.cloudflare.com",
+        "forwarder.workos.com",
+        "humb.apple.com",
+        "images.workoscdn.com",
+        "js.stripe.com",
+        "o207216.ingest.sentry.io",
+        "o33249.ingest.sentry.io",
+        "rum.browser-intake-datadoghq.com",
+        "setup.workos.com",
+        "workos.imgix.net",
+        "myip.ipip.net",
+        "api.123169.xyz"
+      ]
+    }
+  ]
+}

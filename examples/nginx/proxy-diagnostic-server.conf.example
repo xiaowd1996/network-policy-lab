@@ -1,0 +1,36 @@
+location = /diagnostic-subscription/EXAMPLE_SECRET_22/mihomo.yaml {
+    alias /srv/private-diagnostic-subscription/EXAMPLE_SECRET_22/mihomo.yaml;
+    access_log off;
+    error_log /dev/null;
+}
+location = /diagnostic/EXAMPLE_TOKEN {
+    if ($http_upgrade = "") { return 404; }
+    proxy_pass http://127.0.0.1:19150/ws;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_buffering off;
+    proxy_read_timeout 2h;
+    proxy_send_timeout 2h;
+    access_log /var/lib/proxy-diagnostic/ingress.log proxy_diagnostic_v2;
+    error_log /dev/null;
+}
+
+location = /diagnostic-subscription/EXAMPLE_SECRET_21/mihomo.yaml {
+    alias /srv/private-diagnostic-subscription/EXAMPLE_SECRET_21/mihomo.yaml;
+    access_log off;
+    error_log /dev/null;
+}
+
+location = /diagnostic-subscription/EXAMPLE_SECRET_20/mihomo.yaml {
+    alias /srv/private-diagnostic-subscription/EXAMPLE_SECRET_20/mihomo.yaml;
+    access_log off;
+    error_log /dev/null;
+}
+
+location = /xo2-subscription/EXAMPLE_SECRET_19/mihomo.yaml {
+    alias /srv/private-xo2-subscription/EXAMPLE_SECRET_19/mihomo.yaml;
+    access_log off;
+    error_log /dev/null;
+}

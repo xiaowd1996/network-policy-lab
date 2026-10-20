@@ -1,0 +1,24 @@
+[Unit]
+Description=Independent direct-HK REALITY transport; original 443 untouched
+After=network.target proxy-direct-wrap-bridge.service
+Requires=proxy-direct-wrap-bridge.service
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/sing-box run -c /root/private-direct-wrap/server.json
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/private-direct-wrap
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,29 @@
+[Unit]
+Description=Metadata-only second-XO packaged connection observer
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-xo2-wrap-20261012/monitor.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/proxy-xo2-wrap
+MemoryMax=96M
+CPUQuota=10%
+Nice=10
+Environment=RELAY_BRIDGE_ROOT=/var/lib/proxy-xo2-wrap
+Environment=RELAY_MONITOR_PORT=18450
+Environment=RELAY_MONITOR_PEER=
+[Install]
+WantedBy=multi-user.target

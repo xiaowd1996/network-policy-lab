@@ -1,0 +1,18 @@
+[Unit]
+Description=Isolated private proxy diagnostic
+After=proxy-diagnostic.service
+Requires=proxy-diagnostic.service
+[Service]
+Type=simple
+User=root
+UMask=0077
+ExecStart=/usr/bin/python3 /usr/local/lib/proxy-diagnostic/collect.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+MemoryMax=192M
+TasksMax=64
+[Install]
+WantedBy=multi-user.target

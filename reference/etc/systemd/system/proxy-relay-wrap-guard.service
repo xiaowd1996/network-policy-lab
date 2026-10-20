@@ -1,0 +1,11 @@
+[Unit]
+Description=Source restriction for dedicated 33 REALITY listener
+Before=proxy-relay-wrap-server.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 /root/private-relay-wrap/guard.py install
+ExecStop=/usr/bin/python3 /root/private-relay-wrap/guard.py remove
+UMask=0077
+[Install]
+WantedBy=multi-user.target

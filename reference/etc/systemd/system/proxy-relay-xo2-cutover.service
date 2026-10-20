@@ -1,0 +1,24 @@
+[Unit]
+Description=Only existing 33 bridge new connections to new XO
+After=proxy-relay-xo2-server.service proxy-relay-wrap-bridge.service
+Requires=proxy-relay-xo2-server.service proxy-relay-wrap-bridge.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/private-relay-xo2-20261014/cutover.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/private-relay-xo2-20261014
+Environment=GOMAXPROCS=2
+
+[Install]
+WantedBy=multi-user.target

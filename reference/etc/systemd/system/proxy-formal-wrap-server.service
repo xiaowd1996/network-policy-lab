@@ -1,0 +1,24 @@
+[Unit]
+Description=Independent formal A-D REALITY endpoint
+After=network.target proxy-formal-wrap-bridge.service
+Requires=proxy-formal-wrap-bridge.service
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/sing-box run -c /root/private-formal-wrap/server.json
+Restart=on-failure
+RestartSec=5
+UMask=0077
+Nice=5
+CPUWeight=50
+MemoryMax=infinity
+LimitNOFILE=infinity
+TasksMax=infinity
+Environment=GOMAXPROCS=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/private-formal-wrap
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+log_format proxy_diagnostic '$msec $status $request_time $bytes_sent $upstream_bytes_sent $upstream_bytes_received $upstream_status';
+log_format proxy_diagnostic_v2 escape=json '{"ts":$msec,"status":$status,"duration":$request_time,"up_connect":"$upstream_connect_time","up_header":"$upstream_header_time","up_status":"$upstream_status","up_sent":"$upstream_bytes_sent","up_received":"$upstream_bytes_received"}';
